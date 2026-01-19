@@ -1,33 +1,26 @@
-let heroinas = [
-  { nome: "Luna", xp: 950 },
-  { nome: "Maya", xp: 1500 },
-  { nome: "Atena", xp: 4800 },
-  { nome: "Clara", xp: 7000 },
-  { nome: "Artemys", xp: 10200 }
-];
+function calcularRank(vitorias, derrotas) {
+  let saldoVitorias = vitorias - derrotas;
+  let nivel = "";
 
-for (let i = 0; i < heroinas.length; i++) {
-
-  let heroina = heroinas[i]; // pega UMA heroína
-  let nivel;
-
-  if (heroina.xp < 1000) {
+  if (vitorias < 10) {
     nivel = "Ferro";
-  } else if (heroina.xp <= 2000) {
+  } else if (vitorias >= 11 && vitorias <= 20) {
     nivel = "Bronze";
-  } else if (heroina.xp <= 5000) {
+  } else if (vitorias >= 21 && vitorias <= 50) {
     nivel = "Prata";
-  } else if (heroina.xp <= 7000) {
+  } else if (vitorias >= 51 && vitorias <= 80) {
     nivel = "Ouro";
-  } else if (heroina.xp <= 8000) {
-    nivel = "Platina";
-  } else if (heroina.xp <= 9000) {
-    nivel = "Ascendente";
-  } else if (heroina.xp <= 10000) {
-    nivel = "Imortal";
+  } else if (vitorias >= 81 && vitorias <= 90) {
+    nivel = "Diamante";
+  } else if (vitorias >= 91 && vitorias <= 100) {
+    nivel = "Lendário";
   } else {
-    nivel = "Radiante";
+    nivel = "Imortal";
   }
 
-  console.log(`A heroína de nome ${heroina.nome} está no nível de ${nivel}`);
+  return `O Herói tem de saldo de ${saldoVitorias} está no nível de ${nivel}`;
 }
+
+// Exemplo de uso
+let resultado = calcularRank(75, 20);
+console.log(resultado);
